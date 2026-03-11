@@ -1,0 +1,73 @@
+#loader {
+  position: fixed;
+  inset: 0;
+  background: var(--black);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.loader-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: loaderFade 1s ease forwards;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+@keyframes loaderFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loader-logo {
+  animation: loaderFade 1s ease forwards;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.loader-logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.loader-bar-wrap {
+  width: 200px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  animation: loaderFade 1s 0.2s ease forwards;
+  opacity: 0;
+}
+
+.loader-bar-fill {
+  height: 100%;
+  background: var(--orange);
+  transition: width 0.06s linear;
+}
+
+.loader-num {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 2px;
+  font-weight: 300;
+  animation: loaderFade 1s 0.2s ease forwards;
+  opacity: 0;
+}

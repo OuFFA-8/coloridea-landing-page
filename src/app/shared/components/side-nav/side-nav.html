@@ -1,0 +1,9 @@
+<div id="side-nav">
+  <div
+    *ngFor="let dot of dots"
+    class="side-dot"
+    [class.active]="dot.active"
+    [attr.data-label]="dot.label"
+    (click)="scrollTo(dot.target)"
+  ></div>
+</div>

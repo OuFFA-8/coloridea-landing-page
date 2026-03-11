@@ -1,0 +1,17 @@
+<section id="clients">
+  <p class="clients-label">شركاؤنا في النجاح</p>
+  <div class="clients-ticker">
+    <div class="clients-row">
+      <div class="client-chip" *ngFor="let c of clients">
+        <div class="client-dot"></div>
+        <span class="client-name">{{ c }}</span>
+      </div>
+    </div>
+    <div class="clients-row" aria-hidden="true">
+      <div class="client-chip" *ngFor="let c of clients">
+        <div class="client-dot"></div>
+        <span class="client-name">{{ c }}</span>
+      </div>
+    </div>
+  </div>
+</section>

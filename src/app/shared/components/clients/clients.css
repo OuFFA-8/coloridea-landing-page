@@ -1,0 +1,78 @@
+#clients {
+  background: var(--black);
+  padding: 100px 56px;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(250, 135, 40, 0.4), transparent);
+  }
+}
+
+.clients-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+  text-align: center;
+  margin-bottom: 56px;
+  font-weight: 400;
+}
+
+.clients-ticker {
+  display: flex;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+}
+
+.clients-row {
+  display: flex;
+  gap: 0;
+  animation: ticker 18s linear infinite;
+  flex-shrink: 0;
+}
+
+.client-chip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 48px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+  white-space: nowrap;
+
+  &:hover .client-name {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.client-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+.client-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.18);
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

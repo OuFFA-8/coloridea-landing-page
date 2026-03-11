@@ -1,0 +1,38 @@
+<section id="portfolio">
+  <div class="sec-inner">
+    <div class="sec-header">
+      <div>
+        <div class="sec-tag port-tag" appReveal>أعمالنا</div>
+        <h2 class="sec-title port-title" appReveal [revealDelay]="1">مشاريع <span>مميزة</span></h2>
+      </div>
+    </div>
+
+    <div class="portfolio-filters" appReveal>
+      <button
+        class="filter-btn"
+        *ngFor="let f of filters"
+        [class.active]="activeFilter === f.key"
+        (click)="setFilter(f.key)"
+      >
+        {{ f.label }}
+      </button>
+    </div>
+
+    <div class="portfolio-grid" appReveal [revealDelay]="1">
+      <div
+        class="port-item"
+        *ngFor="let item of items; let i = index"
+        [class.span-tall]="item.span"
+        [style.opacity]="isVisible(item) ? '1' : '0.2'"
+        [style.transform]="isVisible(item) ? 'scale(1)' : 'scale(0.97)'"
+      >
+        <div class="port-bg" [ngClass]="item.bgClass"></div>
+        <div class="port-overlay"></div>
+        <div class="port-info">
+          <div class="port-cat">{{ item.catLabel }}</div>
+          <div class="port-name" [innerHTML]="item.name.replace('\n', '<br>')"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

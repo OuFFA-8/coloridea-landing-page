@@ -1,1 +1,163 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+* {
+  font-family: 'Alexandria', sans-serif;
+}
+/* ═══════════════════════════════
+   GLOBAL STYLES — Color Idea
+═══════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --orange: #fa8728;
+  --black: #0a0a0a;
+  --white: #f5f5f3;
+  --gray-dark: #444547;
+  --gray-mid: #6b6d70;
+  --gray-light: #e6e6e7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Alexandria', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ─── Reveal Animation ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
+/* ─── Buttons ─── */
+.btn-fill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  background: var(--orange);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: all 0.3s;
+  font-family: 'Alexandria', sans-serif;
+  border: none;
+  cursor: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(250, 135, 40, 0.3);
+  }
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 400;
+  transition: all 0.3s;
+  font-family: 'Alexandria', sans-serif;
+  background: transparent;
+  cursor: none;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--white);
+  }
+}
+
+/* ─── Section shared ─── */
+.sec-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sec-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 72px;
+  gap: 32px;
+}
+
+.sec-tag {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--orange);
+  }
+}
+
+.sec-title {
+  font-size: clamp(36px, 3.5vw, 54px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+
+  span {
+    color: var(--orange);
+  }
+}
+
+.sec-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.3);
+  line-height: 1.8;
+  max-width: 280px;
+  text-align: right;
+}

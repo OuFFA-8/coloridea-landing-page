@@ -1,0 +1,38 @@
+.cur {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition:
+    left 0.05s linear,
+    top 0.05s linear;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--orange);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: var(--orange);
+  }
+}
+
+/* نقطة وسط */
+.cur {
+  &::before {
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,109 @@
+#contact {
+  background: var(--orange);
+  padding: 120px 56px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 59px,
+        rgba(255, 255, 255, 0.04) 60px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 59px,
+        rgba(255, 255, 255, 0.04) 60px
+      );
+  }
+}
+
+.cta-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 80px;
+}
+
+.cta-title {
+  font-size: clamp(40px, 4.5vw, 68px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: -2px;
+
+  em {
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 200;
+    display: block;
+  }
+}
+
+.cta-desc {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+.cta-form {
+  display: flex;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.cta-input {
+  flex: 1;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: 'Alexandria', sans-serif;
+  font-size: 14px;
+  text-align: right;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.cta-submit {
+  padding: 16px 28px;
+  background: #fff;
+  border: none;
+  color: var(--orange);
+  font-family: 'Alexandria', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--black);
+    color: var(--orange);
+  }
+}
+@media (max-width: 900px) {
+  .cta-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

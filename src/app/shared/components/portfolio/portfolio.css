@@ -1,0 +1,200 @@
+#portfolio {
+  background: var(--white);
+  color: var(--black);
+  padding: 120px 56px;
+}
+
+.port-tag {
+  color: var(--orange) !important;
+}
+.port-title {
+  color: var(--black) !important;
+}
+
+.portfolio-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.45);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Alexandria', sans-serif;
+
+  &:hover,
+  &.active {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: #fff;
+  }
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 260px;
+  gap: 16px;
+}
+
+.port-item {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition:
+    opacity 0.4s,
+    transform 0.4s;
+
+  &.span-tall {
+    grid-row: span 2;
+    grid-column: span 1;
+  }
+
+  &:hover .port-bg {
+    transform: scale(1.06);
+  }
+  &:hover .port-overlay {
+    opacity: 1;
+  }
+  &:hover .port-info {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.port-bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.6s ease;
+
+  &.pb1 {
+    background: linear-gradient(135deg, #1a2a1a 0%, #0d1a10 100%);
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(250, 135, 40, 0.1) 0%, transparent 60%);
+    }
+  }
+  &.pb2 {
+    background: linear-gradient(135deg, #2a1a0a 0%, #1a0d05 100%);
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(250, 135, 40, 0.1) 0%, transparent 60%);
+    }
+  }
+  &.pb3 {
+    background: linear-gradient(135deg, #0a1a2a 0%, #050d1a 100%);
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(250, 135, 40, 0.1) 0%, transparent 60%);
+    }
+  }
+  &.pb4 {
+    background: linear-gradient(135deg, #2a0a1a 0%, #1a050d 100%);
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(250, 135, 40, 0.1) 0%, transparent 60%);
+    }
+  }
+  &.pb5 {
+    background: linear-gradient(135deg, #1a1a2a 0%, #0d0d1a 100%);
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(250, 135, 40, 0.1) 0%, transparent 60%);
+    }
+  }
+}
+
+.port-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.1) 60%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.port-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 20px;
+  transform: translateY(12px);
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.port-cat {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.port-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+}
+@media (max-width: 768px) {
+  #portfolio {
+    padding: 80px 20px;
+  }
+
+  .portfolio-filters {
+    gap: 6px;
+    margin-bottom: 32px;
+  }
+
+  .filter-btn {
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 180px;
+    gap: 10px;
+  }
+
+  .port-item.span-tall {
+    grid-row: span 1;
+    grid-column: span 2;
+  }
+
+  .port-info {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .port-overlay {
+    opacity: 1;
+  }
+}

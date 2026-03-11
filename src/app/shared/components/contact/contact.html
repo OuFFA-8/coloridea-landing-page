@@ -1,0 +1,27 @@
+<section id="contact">
+  <div class="cta-inner">
+    <div>
+      <h2 class="cta-title" appReveal>
+        مشروعك يستحق
+        <em>إرثاً</em>
+        بصرياً
+      </h2>
+    </div>
+    <div class="cta-right" appReveal [revealDelay]="2">
+      <p class="cta-desc">
+        أرسل لنا رقمك وسيتواصل معك فريقنا خلال 24 ساعة لنناقش كيف يمكننا توثيق مشروعك باحترافية
+        حقيقية
+      </p>
+      <div class="cta-form">
+        <input
+          type="tel"
+          class="cta-input"
+          placeholder="رقم جوالك"
+          [(ngModel)]="phone"
+          (keyup.enter)="submit()"
+        />
+        <button class="cta-submit" (click)="submit()">تواصل معنا</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,54 @@
+<nav [class.scrolled]="scrolled">
+  <div class="nav-inner">
+    <!-- Logo -->
+    <a (click)="scrollTo('home')" class="cursor-pointer flex-shrink-0">
+      <img src="/logo-10.png" alt="Color Idea" class="h-8 md:h-9 w-auto" />
+    </a>
+
+    <!-- Desktop Links -->
+    <ul class="hidden md:flex items-center gap-10 list-none m-0 p-0">
+      <li><a (click)="scrollTo('about')" class="nav-link">من نحن</a></li>
+      <li><a (click)="scrollTo('services')" class="nav-link">خدماتنا</a></li>
+      <li><a (click)="scrollTo('portfolio')" class="nav-link">أعمالنا</a></li>
+      <li><a (click)="scrollTo('clients')" class="nav-link">عملاؤنا</a></li>
+      <li><a (click)="scrollTo('contact')" class="nav-cta">ابدأ مشروعك</a></li>
+    </ul>
+
+    <!-- Hamburger -->
+    <button
+      class="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer bg-transparent border-none"
+      (click)="toggleMenu()"
+      aria-label="القائمة"
+    >
+      <span
+        class="block w-6 h-px bg-white transition-all duration-300"
+        [class.rotate-45]="menuOpen"
+        [class.translate-y-2]="menuOpen"
+      ></span>
+      <span
+        class="block w-6 h-px bg-white transition-all duration-300"
+        [class.opacity-0]="menuOpen"
+      ></span>
+      <span
+        class="block w-6 h-px bg-white transition-all duration-300"
+        [class.-rotate-45]="menuOpen"
+        [class.-translate-y-2]="menuOpen"
+      ></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div
+  class="fixed inset-0 z-40 flex flex-col justify-center items-center gap-8 transition-all duration-500 md:hidden"
+  [class.opacity-0]="!menuOpen"
+  [class.pointer-events-none]="!menuOpen"
+  [class.opacity-100]="menuOpen"
+  style="background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(20px)"
+>
+  <a (click)="scrollTo('about')" class="mobile-link">من نحن</a>
+  <a (click)="scrollTo('services')" class="mobile-link">خدماتنا</a>
+  <a (click)="scrollTo('portfolio')" class="mobile-link">أعمالنا</a>
+  <a (click)="scrollTo('clients')" class="mobile-link">عملاؤنا</a>
+  <a (click)="scrollTo('contact')" class="mobile-cta">ابدأ مشروعك</a>
+</div>
