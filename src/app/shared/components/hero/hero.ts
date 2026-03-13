@@ -17,15 +17,12 @@ export class Hero implements AfterViewInit {
 
   scrollTo(id: string) {
     if (!this.isBrowser) return;
-
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   }
 
   ngAfterViewInit() {
     if (!this.isBrowser) return;
-
     const els = document.querySelectorAll('#home .reveal');
-
     setTimeout(() => {
       els.forEach((el) => el.classList.add('visible'));
     }, 200);
