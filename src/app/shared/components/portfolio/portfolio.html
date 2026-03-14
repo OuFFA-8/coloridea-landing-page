@@ -10,59 +10,67 @@
 
     <!-- Filters -->
     <div class="portfolio-filters" appReveal>
-      <button
-        class="filter-btn"
-        *ngFor="let f of filters"
-        [class.active]="activeFilter() === f.key"
-        (click)="setFilter(f.key)"
-      >
-        {{ f.label }}
-      </button>
+      @for (f of filters; track f.key) {
+        <button
+          class="filter-btn"
+          [class.active]="activeFilter() === f.key"
+          (click)="setFilter(f.key)"
+        >
+          {{ f.label }}
+        </button>
+      }
     </div>
 
     <!-- Grid -->
     <div class="portfolio-grid" appReveal [revealDelay]="1">
-      <div
-        class="port-item"
-        *ngFor="let item of visibleItems"
-        [class.span-tall]="item.span"
-        (click)="openVideo(item)"
-      >
-        <div class="port-bg" [ngClass]="item.bgClass"></div>
-        <div class="port-overlay"></div>
+      @for (item of visibleItems; track $index) {
+        <div class="port-item" [class.span-tall]="item.span" (click)="openVideo(item)">
+          <div class="port-bg" [ngClass]="item.bgClass">
+            @if (item.thumbnail) {
+              <img [src]="item.thumbnail" [alt]="item.name" class="port-thumb" />
+            }
+          </div>
+          <div class="port-overlay"></div>
 
-        <div class="port-play" *ngIf="item.videoId">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </div>
+          @if (item.videoId) {
+            <div class="port-play">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          }
 
-        <div class="port-info">
-          <div class="port-company" *ngIf="item.company">{{ item.company }}</div>
-          <div class="port-cat">{{ item.catLabel }}</div>
-          <div class="port-name">{{ item.name }}</div>
+          <div class="port-info">
+            @if (item.company) {
+              <div class="port-company">{{ item.company }}</div>
+            }
+            <div class="port-cat">{{ item.catLabel }}</div>
+            <div class="port-name">{{ item.name }}</div>
+          </div>
         </div>
-      </div>
+      }
     </div>
 
     <!-- Show More -->
-    <div class="port-more-wrap" *ngIf="hasMore">
-      <button class="port-more-btn" (click)="toggleShowAll()">
-        <span>{{ showAll() ? 'عرض أقل' : 'شاهد المزيد' }}</span>
-        <svg
-          width="14"
-          height="14"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-          [style.transform]="showAll() ? 'rotate(180deg)' : 'rotate(0deg)'"
-          style="transition: transform 0.3s"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-    </div>
+    @if (hasMore) {
+      <div class="port-more-wrap">
+        <button class="port-more-btn" (click)="toggleShowAll()">
+          <span>{{ showAll() ? 'عرض أقل' : 'شاهد المزيد' }}</span>
+          <svg
+            width="14"
+            height="14"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            [style.transform]="showAll() ? 'rotate(180deg)' : 'rotate(0deg)'"
+            style="transition: transform 0.3s"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+    }
   </div>
 </section>
 
@@ -85,13 +93,9 @@
       </button>
     </div>
     <div class="video-modal-body">
-      <iframe
-        *ngIf="activeVideo()"
-        [src]="activeVideo()"
-        frameborder="0"
-        allowfullscreen
-        allow="autoplay"
-      ></iframe>
+      @if (activeVideo()) {
+        <iframe [src]="activeVideo()" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+      }
     </div>
   </div>
 </div>

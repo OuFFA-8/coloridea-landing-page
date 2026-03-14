@@ -11,6 +11,7 @@ export interface PortfolioItem {
   bgClass: string;
   span?: boolean;
   videoId: string;
+  thumbnail: string; // ← مسار الصورة
 }
 
 @Component({
@@ -37,7 +38,6 @@ export class Portfolio {
   ];
 
   allItems: PortfolioItem[] = [
-    // ── عقارات ──
     {
       cat: 'realestate',
       catLabel: 'عقارات',
@@ -46,6 +46,7 @@ export class Portfolio {
       bgClass: 'pb1',
       span: true,
       videoId: '1KxQZWvXwbypbnfpI8RyUXYmhkOG1v8En',
+      thumbnail: '/فيلم مشاريع جادة .png',
     },
     {
       cat: 'realestate',
@@ -54,6 +55,7 @@ export class Portfolio {
       name: 'فيلم تحديثات التقدم — جادة الصفا',
       bgClass: 'pb2',
       videoId: '13w2Vfwx_uqDj_abxA-vg6il-2J1JaNRX',
+      thumbnail: '/فيلم تحديثات التقدم - جادة الصفا.png',
     },
     {
       cat: 'realestate',
@@ -62,6 +64,7 @@ export class Portfolio {
       name: 'فيلم حكاية المساء',
       bgClass: 'pb3',
       videoId: '13kZfolodyQVANbbT93NHEmRnTACg3aQe',
+      thumbnail: '/فيلم حكاية المساء.png',
     },
     {
       cat: 'realestate',
@@ -70,6 +73,7 @@ export class Portfolio {
       name: 'لأن البيت قصة',
       bgClass: 'pb4',
       videoId: '1dCPnvz1clNrFeMzB0XHB-6wIFfoOxVhN',
+      thumbnail: '/لأن البيت قصة ( ريلز ).png',
     },
     {
       cat: 'realestate',
@@ -78,6 +82,7 @@ export class Portfolio {
       name: 'تقرير تطور مشروع جادة 46',
       bgClass: 'pb5',
       videoId: '1p4kTz1ZZubVMq1FVk9wl7GGtlz_njVwc',
+      thumbnail: '/تقرير تطور مشروع جادة 46 - فبراير .png',
     },
     {
       cat: 'realestate',
@@ -86,6 +91,7 @@ export class Portfolio {
       name: 'فيلم إنجازات 2025',
       bgClass: 'pb6',
       videoId: '1WMdPk11Uoc8-FUBekQ7PJr76U3Ik5Dfg',
+      thumbnail: '',
     },
     {
       cat: 'realestate',
@@ -94,6 +100,7 @@ export class Portfolio {
       name: 'فيلم أبراج طريق الملك سلمان',
       bgClass: 'pb7',
       videoId: '18LWHS7_yL0Lua2K4HRY7sg8juOPmtHjV',
+      thumbnail: '/فيلم أبراج طريق الملك سلمان.png',
     },
     {
       cat: 'realestate',
@@ -102,8 +109,8 @@ export class Portfolio {
       name: 'فيلم إيلاف جدة',
       bgClass: 'pb8',
       videoId: '1xqobEcY5zvZGRYqLbq4BIicfc5ypMNos',
+      thumbnail: '/فيلم إيلاف جدة .png',
     },
-    // ── مبادرات حكومية — أضف لينكاتها ──
     {
       cat: 'gov',
       catLabel: 'مبادرات حكومية',
@@ -111,8 +118,8 @@ export class Portfolio {
       name: 'توثيق مشروع جادة',
       bgClass: 'pb2',
       videoId: '',
+      thumbnail: '',
     },
-    // ── أفلام وثائقية — أضف لينكاتها ──
     {
       cat: 'doc',
       catLabel: 'أفلام وثائقية',
@@ -120,8 +127,8 @@ export class Portfolio {
       name: 'فيلم الزاملية التوثيقي',
       bgClass: 'pb3',
       videoId: '',
+      thumbnail: '',
     },
-    // ── حملات وطنية — أضف لينكاتها ──
     {
       cat: 'national',
       catLabel: 'حملات وطنية',
@@ -129,6 +136,7 @@ export class Portfolio {
       name: 'توثيق رؤية 2030',
       bgClass: 'pb4',
       videoId: '',
+      thumbnail: '',
     },
   ];
 
