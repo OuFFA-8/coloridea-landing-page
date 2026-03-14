@@ -1,16 +1,37 @@
-<section id="clients">
-  <p class="clients-label">شركاؤنا في النجاح</p>
-  <div class="clients-ticker">
-    <div class="clients-row">
-      <div class="client-chip" *ngFor="let c of clients">
-        <div class="client-dot"></div>
-        <span class="client-name">{{ c }}</span>
+<section id="clients" class="relative overflow-hidden bg-[#0a0a0a]">
+  <!-- خط برتقالي فوق -->
+  <div
+    class="absolute top-0 left-0 right-0 h-px"
+    style="background: linear-gradient(90deg, transparent, rgba(250, 135, 40, 0.4), transparent)"
+  ></div>
+
+  <div class="clients-label-wrap">
+    <p class="text-[15px] tracking-[4px] uppercase text-white/20 font-light">شركاؤنا في النجاح</p>
+  </div>
+
+  <!-- التيكر -->
+  <div class="pb-16">
+    <div class="clients-ticker">
+      <div class="clients-row">
+        @for (logo of logos; track logo.alt) {
+          <div class="client-chip">
+            <img [src]="logo.src" [alt]="logo.alt" class="client-logo" />
+          </div>
+        }
       </div>
-    </div>
-    <div class="clients-row" aria-hidden="true">
-      <div class="client-chip" *ngFor="let c of clients">
-        <div class="client-dot"></div>
-        <span class="client-name">{{ c }}</span>
+      <div class="clients-row" aria-hidden="true">
+        @for (logo of logos; track logo.alt) {
+          <div class="client-chip">
+            <img [src]="logo.src" [alt]="logo.alt" class="client-logo" />
+          </div>
+        }
+      </div>
+      <div class="clients-row" aria-hidden="true">
+        @for (logo of logos; track logo.alt) {
+          <div class="client-chip">
+            <img [src]="logo.src" [alt]="logo.alt" class="client-logo" />
+          </div>
+        }
       </div>
     </div>
   </div>
