@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { Navbar } from './shared/components/navbar/navbar';
 import { Footer } from './shared/components/footer/footer';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,17 @@ import { SideNav } from './shared/components/side-nav/side-nav';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, Navbar, Footer, Loader, Cursor, ProgressBar, SideNav],
+  imports: [
+    RouterLink,
+    RouterOutlet,
+    CommonModule,
+    Navbar,
+    Footer,
+    Loader,
+    Cursor,
+    ProgressBar,
+    SideNav,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
