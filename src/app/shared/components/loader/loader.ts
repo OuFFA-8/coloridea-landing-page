@@ -13,12 +13,20 @@ export class Loader implements OnInit {
   hidden = false;
 
   ngOnInit() {
-    const interval = setInterval(() => {
-      this.progress = Math.min(this.progress + Math.floor(Math.random() * 12) + 3, 100);
-      if (this.progress >= 100) {
-        clearInterval(interval);
+    const duration = 1800;
+    const startTime = performance.now();
+
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      this.progress = Math.min(Math.round((elapsed / duration) * 100), 100);
+
+      if (this.progress < 100) {
+        requestAnimationFrame(animate);
+      } else {
         setTimeout(() => (this.hidden = true), 500);
       }
-    }, 60);
+    };
+
+    requestAnimationFrame(animate);
   }
 }
