@@ -170,7 +170,7 @@
 
 .port-company {
   font-size: 9px;
-  letter-spacing: 2px;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 4px;
@@ -178,7 +178,7 @@
 
 .port-cat {
   font-size: 10px;
-  letter-spacing: 2px;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: var(--orange);
   font-weight: 700;
