@@ -11,17 +11,7 @@ import { SideNav } from './shared/components/side-nav/side-nav';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterLink,
-    RouterOutlet,
-    CommonModule,
-    Navbar,
-    Footer,
-    Loader,
-    Cursor,
-    ProgressBar,
-    SideNav,
-  ],
+  imports: [RouterOutlet, CommonModule, Navbar, Footer, Loader, Cursor, ProgressBar, SideNav],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
